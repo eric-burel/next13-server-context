@@ -1,15 +1,17 @@
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "./page.module.css";
-import { getSharedObject } from "./getSharedObject";
+import { getServerContext } from "./getServerContext";
 import { MyServerComponent } from "./component";
+
+export const dynamic = "force-dynamic";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-  const sharedObject = getSharedObject();
-  sharedObject.calledByPage = true;
-  console.log("Shared object in page:", sharedObject);
+  const ServerContext = getServerContext();
+  ServerContext.calledByPage = true;
+  console.log("Shared object in page:", ServerContext);
   return (
     <main className={styles.main}>
       <MyServerComponent />

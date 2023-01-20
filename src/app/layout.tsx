@@ -1,4 +1,4 @@
-import { getSharedObject } from "./getSharedObject";
+import { getServerContext } from "./getServerContext";
 import "./globals.css";
 
 export default function RootLayout({
@@ -6,9 +6,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const sharedObject = getSharedObject();
-  sharedObject.calledByLayout = true;
-  console.log("Shared object in layout:", sharedObject);
+  const ServerContext = getServerContext();
+  ServerContext.calledByLayout = true;
+  console.log("Shared object in layout:", ServerContext);
   return (
     <html lang="en">
       {/*

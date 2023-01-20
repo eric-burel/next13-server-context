@@ -1,8 +1,8 @@
-import { getSharedObject } from "./getSharedObject";
+import { getServerContext } from "./getServerContext";
 
 export const MyServerComponent = () => {
-  const sharedObject = getSharedObject();
-  sharedObject.calledByNested = true;
-  console.log("Shared object in nested:", sharedObject);
-  return <div>{JSON.stringify(sharedObject)}</div>;
+  const ServerContext = getServerContext();
+  ServerContext.calledByNested = true;
+  console.log("Shared object in nested:", ServerContext);
+  return <div>{JSON.stringify(ServerContext)}</div>;
 };
