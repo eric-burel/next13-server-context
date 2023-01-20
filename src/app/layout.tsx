@@ -1,10 +1,14 @@
-import './globals.css'
+import { getSharedObject } from "./getSharedObject";
+import "./globals.css";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
+  const sharedObject = getSharedObject();
+  sharedObject.calledByLayout = true;
+  console.log("Shared object in layout:", sharedObject);
   return (
     <html lang="en">
       {/*
@@ -14,5 +18,5 @@ export default function RootLayout({
       <head />
       <body>{children}</body>
     </html>
-  )
+  );
 }

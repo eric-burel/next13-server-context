@@ -1,12 +1,18 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import Image from "next/image";
+import { Inter } from "@next/font/google";
+import styles from "./page.module.css";
+import { getSharedObject } from "./getSharedObject";
+import { MyServerComponent } from "./component";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const sharedObject = getSharedObject();
+  sharedObject.calledByPage = true;
+  console.log("Shared object in page:", sharedObject);
   return (
     <main className={styles.main}>
+      <MyServerComponent />
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
@@ -18,7 +24,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -87,5 +93,5 @@ export default function Home() {
         </a>
       </div>
     </main>
-  )
+  );
 }
