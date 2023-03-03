@@ -1,3 +1,6 @@
+This repo demonstrates using React 18 cache to carry a request-scoped context across RSCs.
+Read the article: https://prismic.io/blog/advanced-nextjs-server-context
+---
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
